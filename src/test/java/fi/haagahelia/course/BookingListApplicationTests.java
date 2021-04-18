@@ -14,13 +14,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 import fi.haagahelia.course.domain.Booking;
-import fi.haagahelia.course.domain.Date;
 import fi.haagahelia.course.web.BookingController;
 
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @SpringBootTest
-public class BookListApplicationTests {
+public class BookingListApplicationTests {
 
 	@Autowired
 	private BookingController controller;

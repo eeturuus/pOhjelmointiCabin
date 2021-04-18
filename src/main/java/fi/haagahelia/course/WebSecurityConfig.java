@@ -25,6 +25,9 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    	@Autowired
+    	private UserDetailServiceImpl userDetailsService;
+	
 	    @Override
 	    protected void configure(HttpSecurity http) throws Exception {
 	        http
@@ -35,7 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        .authorizeRequests().anyRequest().authenticated()
 	        .and()
 	      .formLogin()
-	          .defaultSuccessUrl("/booklist", true)
+	      	  .loginPage("/login")
+	          .defaultSuccessUrl("/bookinglist", true)
 	          .permitAll()
 	          .and()
 	      .logout()
@@ -68,8 +72,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //
 //	        return new InMemoryUserDetailsManager(users);
 //	    }
-	    @Autowired
-	    private UserDetailServiceImpl userDetailsService;
+
 	    
 		@Autowired
 		public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

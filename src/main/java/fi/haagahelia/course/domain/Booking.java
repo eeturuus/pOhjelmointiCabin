@@ -44,7 +44,7 @@ public class Booking {
 		return uname;
 	}
 
-	public void setUsername(String uname) {
+	public void setUname(String uname) {
 		this.uname = uname;
 	}
 

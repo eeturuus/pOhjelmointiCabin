@@ -12,13 +12,22 @@
 	<groupId>com.example</groupId>
 	<artifactId>CabinBooking</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Bookstore</name>
+	<name>CabinBooking</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
-		
+		 <dependency>
+           <groupId>org.springframework.webflow</groupId>
+           <artifactId>spring-faces</artifactId>
+           <version>2.4.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>3.2.6.RELEASE</version>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -50,10 +59,10 @@
 		</dependency>
 
  		
-<!-- 		<dependency>
+ 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-		</dependency> -->
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -94,6 +103,11 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring5</artifactId>
 		</dependency>
 
 		<dependency>

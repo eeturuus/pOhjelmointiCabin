@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,12 +16,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import fi.haagahelia.course.domain.Booking;
 import fi.haagahelia.course.domain.BookingRepository;
-import fi.haagahelia.course.domain.DateRepository;
+import fi.haagahelia.course.domain.User;
+import fi.haagahelia.course.domain.UserRepository;
 
 @Controller
 public class BookingController {
+	
 	@Autowired
 	private BookingRepository repository;
+	
+	@Autowired
+	private UserRepository urepository;
 	
 //	@Autowired
 //	private DateRepository drepository;
@@ -28,6 +35,14 @@ public class BookingController {
 	public String login() {
 		return "login";
 	}
+//	@RequestMapping("/bookinglist")
+//	public String results(Model model) {
+//	UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//    String username = user.getUsername();
+//    User userNow = urepository.findByUsername(username);
+//	model.addAttribute("bookinglist", repository.findByUname(userNow));
+//	return "booking";
+//}
 	
     @RequestMapping(value= {"/bookinglist"})
     public String bookList(Model model) {
@@ -63,7 +78,7 @@ public class BookingController {
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @PreAuthorize("hasRole('ADMIN')")
-    public String deleteBooking(@PathVariable("id") Long bookingId, Model model) {
+    public String delete(@PathVariable("id") Long bookingId, Model model) {
     	repository.deleteById(bookingId);
         return "redirect:../bookinglist"; //redirect:bookinglist
     }
