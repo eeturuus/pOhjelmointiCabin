@@ -17,6 +17,8 @@ public interface BookingRepository extends CrudRepository<Booking, Long>{
 
 	List<Booking> findByDate(LocalDate date);
 	
+	//List<Booking> findByEnddate(LocalDate enddate);
+	
 	List<Booking> findByUname(@Param("uname")String uname);
 	
 }

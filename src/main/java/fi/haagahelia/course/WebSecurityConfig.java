@@ -28,8 +28,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	@Autowired
     	private UserDetailServiceImpl userDetailsService;
 	
-	    @Override
-	    protected void configure(HttpSecurity http) throws Exception {
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            
 	        http
 	        .authorizeRequests().antMatchers("/css/**").permitAll() // Enable css when logged out
 	        .and()
@@ -38,10 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	        .authorizeRequests().anyRequest().authenticated()
 	        .and()
 	      .formLogin()
-<<<<<<< HEAD
 	      	  .loginPage("/login")
-=======
->>>>>>> 4a826cccbcc1a0912ce13e35ce8a6084fe979523
 	          .defaultSuccessUrl("/bookinglist", true)
 	          .permitAll()
 	          .and()

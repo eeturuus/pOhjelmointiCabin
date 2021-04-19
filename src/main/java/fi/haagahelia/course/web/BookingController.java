@@ -75,13 +75,14 @@ public class BookingController {
         repository.save(booking);
         return "redirect:bookinglist";
     }    
-
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-    @PreAuthorize("hasRole('ADMIN')")
     public String delete(@PathVariable("id") Long bookingId, Model model) {
     	repository.deleteById(bookingId);
         return "redirect:../bookinglist"; //redirect:bookinglist
     }
+
+    
     
     @RequestMapping(value="/modify/{id}", method=RequestMethod.GET)
 	public String modifyBooking(@PathVariable("id") Long bookingId, Model model) {

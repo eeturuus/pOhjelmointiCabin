@@ -19,9 +19,10 @@
 		<thead>
 			<tr>
 				<th>Date</th>
+				<th>End Date</th>
 				<th>Username</th>
 				<th>Comment</th>
-				<th sec:authorize="hasRole('ADMIN')"> </th>
+				<th sec:authorize="hasAuthority('ADMIN')"> </th>
 			</tr>
 		</thead>
 
@@ -29,10 +30,11 @@
 		<tbody>
 			<tr th:each="booking : ${bookings}">
 				<td th:text="${#temporals.format(booking.date, 'dd.MM.yyyy')}"></td>
+				<td th:text="${#temporals.format(booking.enddate, 'dd.MM.yyyy')}"></td>
 				<td th:text="${booking.uname}"></td>
 				<td th:text="${booking.comment}"></td>
-				<td> <sec:authorize access="hasRole('ADMIN')">
-					<a th:href="@{/delete/{id}(id=${booking.id})}" class="btn btn-danger" >Delete</a></sec:authorize>
+				<td sec:authorize="hasAuthority('ADMIN')">
+					<a th:href="@{/delete/{id}(id=${booking.id})}" class="btn btn-danger" >Delete</a>
 				</td>
 				<td><a class="btn btn-primary"
 					th:href="@{/modify/{id}(id=${booking.id})}">Edit</a></td>

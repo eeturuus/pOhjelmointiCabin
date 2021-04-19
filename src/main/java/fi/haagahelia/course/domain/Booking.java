@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 public class Booking {
@@ -22,14 +23,21 @@ public class Booking {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
     
-    public Booking() {}
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate enddate;
+    //private Long daysBetween = ChronoUnit.DAYS.between(date, enddate);
+
+
+	public Booking() {}
     
     
-	public Booking(String uname, String comment, LocalDate date) {
+	public Booking(String uname, String comment, LocalDate date, LocalDate enddate) {
 		super();
 		this.uname = uname;
 		this.comment = comment;
 		this.date = date;
+		this.enddate = enddate;
+		//this.daysBetween = daysBetween;
 	}
 
 	public Long getId() {
@@ -63,8 +71,23 @@ public class Booking {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
+    public LocalDate getEnddate() {
+		return enddate;
+	}
+	public void setEnddate(LocalDate enddate) {
+		this.enddate = enddate;
+	}
+//	public Long getDaysBetween() {
+//		return daysBetween;
+//	}
+//
+//	public void setDaysBetween(Long daysBetween) {
+//		this.daysBetween = daysBetween;
+//	}
+	
 	@Override
 	public String toString() {
-		return "Booking [id=" + id + ", uname=" + uname + ", comment=" + comment + ", date=" + date + "]";
+		return "Booking [id=" + id + ", uname=" + uname + ", comment=" + comment + ", date=" + date  + ", enddate=" + enddate + "]";
 	}
 }
+// ", daysBetween=" + daysBetween + 
