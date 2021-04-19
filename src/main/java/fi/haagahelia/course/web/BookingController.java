@@ -77,10 +77,6 @@ public class BookingController {
     }    
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-<<<<<<< HEAD
-=======
-    @PreAuthorize("hasAuthority('ADMIN')")
->>>>>>> a5a6add37efb0da41762cbc204a6fa1711a634ee
     public String delete(@PathVariable("id") Long bookingId, Model model) {
     	repository.deleteById(bookingId);
         return "redirect:../bookinglist"; //redirect:bookinglist
