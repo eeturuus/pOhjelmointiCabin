@@ -17,16 +17,11 @@ import fi.haagahelia.course.domain.Booking;
 import fi.haagahelia.course.web.BookingController;
 
 @ExtendWith(SpringExtension.class)
-@DataJpaTest
 @SpringBootTest
 public class BookingListApplicationTests {
 
-	@Autowired
-	private BookingController controller;
-	
 	@Test
 	public void contextLoads() {
-		assertThat(controller).isNotNull();
 	}
 
 }
