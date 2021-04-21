@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	          .permitAll();
 	    }
 
-
+        		////Tässä vaihtoehtoinen adminin ja userin luonti joka tapahtuu jo CabinBookingApplicationissa yksinkertaisemmin
 //	    @Bean
 //	    @Override
 //	    public UserDetailsService userDetailsService() {

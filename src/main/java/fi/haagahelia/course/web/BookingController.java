@@ -28,21 +28,11 @@ public class BookingController {
 	@Autowired
 	private UserRepository urepository;
 	
-//	@Autowired
-//	private DateRepository drepository;
-	
 	@RequestMapping(value="/login")
 	public String login() {
 		return "login";
 	}
-//	@RequestMapping("/bookinglist")
-//	public String results(Model model) {
-//	UserDetails user = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//    String username = user.getUsername();
-//    User userNow = urepository.findByUsername(username);
-//	model.addAttribute("bookinglist", repository.findByUname(userNow));
-//	return "booking";
-//}
+
 	
     @RequestMapping(value= {"/bookinglist"})
     public String bookList(Model model) {
@@ -62,11 +52,10 @@ public class BookingController {
 	public @ResponseBody Optional<Booking> findBookingRest(@PathVariable("id") Long bookingId) {
 		return repository.findById(bookingId);
 	}
-    
+
     @RequestMapping(value = "/add")
     public String addBook(Model model){
     	model.addAttribute("booking", new Booking());
-//    	model.addAttribute("categories", drepository.findAll());
         return "addbooking";
     }     
     
@@ -75,11 +64,12 @@ public class BookingController {
         repository.save(booking);
         return "redirect:bookinglist";
     }    
+    
     @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     public String delete(@PathVariable("id") Long bookingId, Model model) {
     	repository.deleteById(bookingId);
-        return "redirect:../bookinglist"; //redirect:bookinglist
+        return "redirect:../bookinglist";
     }
 
     
@@ -88,7 +78,6 @@ public class BookingController {
 	public String modifyBooking(@PathVariable("id") Long bookingId, Model model) {
 		Optional<Booking> booking = repository.findById(bookingId);
 		model.addAttribute("booking", booking);
-//		model.addAttribute("categories", drepository.findAll());
 		System.out.println("OLLAAN MODIFYBOOKING METODISSA");
 		System.out.println(booking);
     	return "modifybooking";

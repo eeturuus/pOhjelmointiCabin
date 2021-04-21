@@ -20,11 +20,14 @@ public class Booking {
    	private String uname;
     private String comment;
 
+    // LocalDate tyypille on laitettava oma DateTimeFormat annotaatio ja pattern kertoo missä muodossa päivämäärä tulee.
     @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate date;
     
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate enddate;
+    
+    
     //private Long daysBetween = ChronoUnit.DAYS.between(date, enddate);
 
 

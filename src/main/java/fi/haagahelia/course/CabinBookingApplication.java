@@ -43,12 +43,16 @@ public class CabinBookingApplication {
 			log.info("save a couple of books");
 			
 			userRepository.deleteAll();
-			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "user@gmail.com", "USER");
-			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "admin@gmail.com", "ADMIN");
+			//luo admin ja user käyttäjät. 
+			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
+			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 			userRepository.save(user1);
 			userRepository.save(user2);
 			
-			//repository.deleteAll(); // poistaa kaikki repositoryt jottei joka kerta laita uusia
+			
+//			repository.deleteAll(); // poistaa kaikki repositoryt jottei joka kerta laita uusia. Kommentoitu pois kun lisätty herokuun
+			
+			//Testatessa BookingRepositoryTest.javalla poista kommenteista seuraava rivi jotta sen voi testata
 //			repository.save(new Booking("Eetu", "Mökille loppu toukokuusta yksin, muutamaksi päiväksi", LocalDate.of(2021, 05, 24), LocalDate.of(2021, 05, 28)));
 //			repository.save(new Booking("Hanna", "Mökille Juhannuksena", LocalDate.of(2021, 06, 25), LocalDate.of(2021, 06, 27)));
 //			repository.save(new Booking("Milla", "Mökille toukokuussa ystävien kanssa", LocalDate.of(2021, 05, 23), LocalDate.of(2021, 05, 25)));
