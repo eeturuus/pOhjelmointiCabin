@@ -53,7 +53,7 @@ public class CabinBookingApplication {
 //			repository.deleteAll(); // poistaa kaikki repositoryt jottei joka kerta laita uusia. Kommentoitu pois kun lisätty herokuun
 			
 			//Testatessa BookingRepositoryTest.javalla poista kommenteista seuraava rivi jotta sen voi testata
-//			repository.save(new Booking("Eetu", "Mökille loppu toukokuusta yksin, muutamaksi päiväksi", LocalDate.of(2021, 05, 24), LocalDate.of(2021, 05, 28)));
+			//repository.save(new Booking("Eetu", "Mökille loppu toukokuusta yksin, muutamaksi päiväksi", LocalDate.of(2021, 05, 24), LocalDate.of(2021, 05, 28)));
 //			repository.save(new Booking("Hanna", "Mökille Juhannuksena", LocalDate.of(2021, 06, 25), LocalDate.of(2021, 06, 27)));
 //			repository.save(new Booking("Milla", "Mökille toukokuussa ystävien kanssa", LocalDate.of(2021, 05, 23), LocalDate.of(2021, 05, 25)));
 //			repository.save(new Booking("Eetu", "Mökille Juhannuksena", LocalDate.of(2021, 06, 25), LocalDate.of(2021, 06, 27)));

@@ -34,7 +34,7 @@ public class BookingController {
 	}
 
 	
-    @RequestMapping(value= {"/bookinglist"})
+    @RequestMapping(value= {"/", "/bookinglist"})
     public String bookList(Model model) {
     	System.out.println("OLLAAN BOOKINGLIST ENDPOINTISSA");
         model.addAttribute("bookings", repository.findAll());
