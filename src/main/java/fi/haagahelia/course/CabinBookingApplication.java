@@ -48,10 +48,11 @@ public class CabinBookingApplication {
 			userRepository.save(user1);
 			userRepository.save(user2);
 			
-			repository.deleteAll();
-			repository.save(new Booking("Eetu", "Mökille loppu toukokuusta", LocalDate.of(2021, 01, 01), LocalDate.of(2021, 03, 01)));
-			repository.save(new Booking("Testi", "Mökille loppu toukokuusta", LocalDate.of(2021, 01, 01), LocalDate.of(2021, 03, 01)));
-			repository.save(new Booking("Joku", "Mökille loppu toukokuusta", LocalDate.of(2021, 01, 01), LocalDate.of(2021, 03, 01)));
+			//repository.deleteAll(); // poistaa kaikki repositoryt jottei joka kerta laita uusia
+//			repository.save(new Booking("Eetu", "Mökille loppu toukokuusta yksin, muutamaksi päiväksi", LocalDate.of(2021, 05, 24), LocalDate.of(2021, 05, 28)));
+//			repository.save(new Booking("Hanna", "Mökille Juhannuksena", LocalDate.of(2021, 06, 25), LocalDate.of(2021, 06, 27)));
+//			repository.save(new Booking("Milla", "Mökille toukokuussa ystävien kanssa", LocalDate.of(2021, 05, 23), LocalDate.of(2021, 05, 25)));
+//			repository.save(new Booking("Eetu", "Mökille Juhannuksena", LocalDate.of(2021, 06, 25), LocalDate.of(2021, 06, 27)));
 			
 			
 			
